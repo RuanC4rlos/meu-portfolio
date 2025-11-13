@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "title": "Dr. On: Plataforma de Carreira Médica (Freelance)",
+    "reverse": false,
+    "image": "images/dr-on.png",
+    "placeholder": "Dr. On SaaS Platform",
+    "tech": "Django, Django REST Framework, Python, LGPD",
+    "description": "Desenvolvimento do backend de uma plataforma inovadora para carreira médica. Implementei a arquitetura Django escalável, criei módulos de validação de credenciais e geração de portfólio profissional. Foco em segurança (JWT, criptografia) e conformidade com a LGPD. Demonstra capacidade de desenvolver soluções complexas para o setor de saúde.",
+    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 1]",
+    "live_link": "https://comunemed.com/"
+  },
+  {
+    "id": 2,
+    "title": "Sistema de Banco de Horas (Projeto Acadêmico)",
+    "reverse": true,
+    "image": "images/banco-horas.png",
+    "placeholder": "Banco de Horas System",
+    "tech": "Django, Django REST Framework, PostgreSQL, Docker",
+    "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
+    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
+    "live_link": ""
+  },
+  {
+    "id": 3,
+    "title": "Compra e Venda de Carros (Projeto Acadêmico)",
+    "reverse": true,
+    "image": "images/banco-horas.png",
+    "placeholder": "Banco de Horas System",
+    "tech": "Django, Django REST Framework, PostgreSQL, Docker",
+    "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
+    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
+    "live_link": ""
+  }
+]
