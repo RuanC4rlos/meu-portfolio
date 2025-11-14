@@ -17,34 +17,68 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  function createCarouselHTML(images, projectId) {
+    if (!images || images.length === 0) {
+      return `<div class="placeholder-project">Imagem Não Disponível</div>`;
+    }
+
+    const hasMultipleImages = images.length > 1;
+    let slidesHTML = "";
+    let indicatorsHTML = "";
+    const imagesJsonString = JSON.stringify(images).replace(/"/g, "&quot;");
+
+    images.forEach((src, index) => {
+      const isActive = index === 0 ? " active" : "";
+      slidesHTML += `
+        <div class="carousel-slide fade${isActive}" data-slide-index="${index}">
+            <img src="${src}" alt="..." 
+                 onclick="openModal('${imagesJsonString}', '${src}')"> 
+        </div>
+    `;
+      if (hasMultipleImages) {
+        indicatorsHTML += `
+                    <span class="carousel-indicator${isActive}" 
+                           onclick="currentSlide(${projectId}, ${
+          index + 1
+        })"></span>
+                 `;
+      }
+    });
+    const controlsHTML = hasMultipleImages
+      ? `<a class="prev" onclick="plusSlides(${projectId}, -1)">&#10094;</a><a class="next" onclick="plusSlides(${projectId}, 1)">&#10095;</a>`
+      : "";
+
+    return `<div class="carousel-container" data-project-id="${projectId}">${slidesHTML}${controlsHTML}<div class="carousel-indicators">${indicatorsHTML}</div></div>`;
+  }
   // -------------------------------------------------------------------
   // 2. LÓGICA DE GERAÇÃO DE HTML A PARTIR DO JSON
   // -------------------------------------------------------------------
 
-  /**
-   * Gera o HTML de um único cartão de projeto a partir de um objeto JSON.
-   * @param {Object} project - Objeto contendo os dados do projeto.
-   * @returns {string} - String contendo o HTML da tag <article>.
-   */
   function createProjectCardHTML(project) {
-    // Alterna o layout 'reverse' para projetos ímpares (melhora a estética)
     const isReverse = project.id % 2 === 0 ? " reverse" : "";
-
-    // Renderiza o link de demo/produção se ele existir
     const liveLinkHTML = project.live_link
       ? `<a href="${project.live_link}" target="_blank" class="btn project-link secondary">Ver Detalhes <i class="fas fa-external-link-alt"></i></a>`
       : "";
 
-    // Uso de Template Literals para manter a estrutura limpa
+    const descriptionHTML = project.description_items
+      ? formatDescriptionHTML(project.description_items)
+      : `<p>${project.description || "Descrição não disponível."}</p>`;
+    // AQUI INJETAMOS O CARROSSEL
+    const carouselHTML = createCarouselHTML(project.images, project.id);
+
     return `
             <article class="project-card${isReverse}">
                 <div class="project-image">
-                    <div class="placeholder-project">${project.placeholder}</div>
+                    ${carouselHTML} 
                 </div>
                 <div class="project-details">
                     <h3>${project.title}</h3>
                     <p class="tech-stack"><strong>Tecnologias:</strong> ${project.tech}</p>
-                    <p>${project.description}</p>
+                    
+                    <div class="project-description-content">
+                      ${descriptionHTML}
+                    </div>
+                    
                     <div class="project-links">
                         <a href="${project.code_link}" target="_blank" class="btn project-link">Código <i class="fab fa-github"></i></a>
                         ${liveLinkHTML}
@@ -134,26 +168,33 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch("projects.json");
       const projectsData = await response.json();
 
-      // 2. Renderizar todos os cartões no DOM (Inicialmente invisíveis)
+      projectsData.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+
+      // 2. Renderizar todos os cartões no DOM
       let allProjectsHTML = "";
       projectsData.forEach((project) => {
-        // Cria o HTML do cartão (todos ainda na mesma string)
         allProjectsHTML += createProjectCardHTML(project);
       });
-      // Insere todo o HTML de uma vez
       projectsContainer.innerHTML = allProjectsHTML;
 
-      // 3. Capturar os elementos DOM para manipular a visibilidade
+      // 3. Capturar os elementos DOM para manipulação
       allProjectElements = Array.from(
         projectsContainer.querySelectorAll(".project-card")
       );
 
-      // 4. Calcular o total de páginas (com base nos dados reais)
+      // 4. Calcular o total de páginas
       totalPages = Math.ceil(allProjectElements.length / itemsPerPage);
 
-      // 5. Inicializar o sistema de paginação
-      displayProjects(currentPage); // Mostra a primeira página
-      setupPagination(); // Cria os botões
+      // 5. Inicializar Paginação e Carrosséis (Chamadas Globais)
+      displayProjects(currentPage);
+      setupPagination();
+
+      // CHAMA A FUNÇÃO GLOBAL APÓS O DOM ESTAR PRONTO
+      window.initCarousels(allProjectElements);
     } catch (error) {
       console.error(
         "Erro ao carregar os dados de projetos ou ao renderizar:",
@@ -166,3 +207,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initPortfolio();
 });
+
+function formatDescriptionHTML(items) {
+  let html = "";
+
+  // Inicia uma lista não ordenada (<U>L)
+  let isListOpen = false;
+
+  items.forEach((item) => {
+    const content = convertTextToHTML(item.content);
+
+    if (item.type === "paragraph") {
+      if (isListOpen) {
+        html += "</ul>"; // Fecha lista anterior
+        isListOpen = false;
+      }
+      html += `<p>${content}</p>`;
+    } else if (item.type === "heading") {
+      if (isListOpen) {
+        html += "</ul>"; // Fecha lista anterior
+        isListOpen = false;
+      }
+      // Use <h4> para evitar conflito com <h2> (título da seção) e <h3> (título do projeto)
+      html += `<h4>${content}</h4>`;
+    } else if (item.type === "list_item") {
+      if (!isListOpen) {
+        html += "<ul>"; // Abre nova lista
+        isListOpen = true;
+      }
+      html += `<li>${content}</li>`;
+    }
+  });
+
+  // Garante que a última lista seja fechada
+  if (isListOpen) {
+    html += "</ul>";
+  }
+  return html;
+}
+
+function convertTextToHTML(text) {
+  if (!text) return "";
+
+  // 1. Converte **Negrito** para <strong>
+  let formattedText = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+  // 2. Converte *Itálico* (opcional) para <em>
+  formattedText = formattedText.replace(/\*(.*?)\*/g, "<em>$1</em>");
+
+  // 3. Converte novas linhas (\n) em quebras de linha <br> (se fosse um parágrafo longo)
+  // formattedText = formattedText.replace(/\n/g, '<br>');
+
+  return formattedText;
+}

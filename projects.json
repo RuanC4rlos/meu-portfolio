@@ -1,35 +1,77 @@
 [
   {
     "id": 1,
-    "title": "Dr. On: Plataforma de Carreira Médica (Freelance)",
-    "reverse": false,
-    "image": "images/dr-on.png",
-    "placeholder": "Dr. On SaaS Platform",
-    "tech": "Django, Django REST Framework, Python, LGPD",
-    "description": "Desenvolvimento do backend de uma plataforma inovadora para carreira médica. Implementei a arquitetura Django escalável, criei módulos de validação de credenciais e geração de portfólio profissional. Foco em segurança (JWT, criptografia) e conformidade com a LGPD. Demonstra capacidade de desenvolver soluções complexas para o setor de saúde.",
-    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 1]",
-    "live_link": "https://comunemed.com/"
+    "title": "Compra e Venda de Carros (Projeto Acadêmico)",
+    "reverse": true,
+    "images": [
+      "images/car/img01.png",
+      "images/car/img02.png",
+      "images/car/img03.png",
+      "images/car/img04.png"
+    ],
+    "tech": "Flutter, Dart, Firebase (Firestore, Auth, Storage), Google Maps API",
+    "description_items": [
+      { "type": "paragraph", "content": "Desenvolvimento de um aplicativo móvel completo e multiplataforma (iOS/Android) para compra, venda e listagem de veículos novos e usados. O objetivo foi simular uma plataforma de classificados digitais robusta e responsiva, focada na experiência do usuário e na gestão eficiente de dados." },
+      { "type": "heading", "content": "Foco de Desenvolvimento e Tecnologias-Chave:" },
+      { "type": "list_item", "content": "Desenvolvimento Front-end: Utilização do **Flutter** para construir uma interface de usuário moderna, fluida e nativa, garantindo consistência em ambas as plataformas (single codebase)." },
+      { "type": "list_item", "content": "Infraestrutura de Backend (BaaS): Implementação completa do **Firebase** (Backend as a Service) para gerenciar dados, autenticação e armazenamento de mídia." },
+      { "type": "list_item", "content": "Autenticação e Segurança: Integração do **Firebase Authentication** para login seguro (e-mail/senha) e gestão de perfis de compradores e vendedores." },
+      { "type": "list_item", "content": "Banco de Dados: Uso do **Cloud Firestore (NoSQL)** para armazenar dados de veículos e usuários em tempo real, permitindo buscas e filtros rápidos (ex: por marca, modelo, ano)." },
+      { "type": "list_item", "content": "Armazenamento de Mídia: Configuração do **Firebase Storage** para hospedar fotos dos veículos de forma escalável e segura." },
+      { "type": "heading", "content": "Funcionalidades Principais:" },
+      { "type": "list_item", "content": "Listagem Dinâmica: Tela principal com busca, filtros avançados e exibição de cards de veículos." },
+      { "type": "list_item", "content": "Cadastro de Anúncios: Interface otimizada para vendedores cadastrarem veículos, incluindo upload de múltiplas fotos." },
+      { "type": "list_item", "content": "Gestão de Estado: Utilização de gerenciadores de estado do Flutter para manter a consistência da interface durante a navegação e operações assíncronas." },
+      { "type": "list_item", "content": "Integração com Geolocalização: Implementação da **Google Maps API** e serviços de localização para exibir a localização exata do veículo anunciado e calcular distâncias para o comprador." }
+    ],
+    "code_link": "",
+    "live_link": "",
+    "date": "2025-11-10"
   },
   {
     "id": 2,
     "title": "Sistema de Banco de Horas (Projeto Acadêmico)",
     "reverse": true,
-    "image": "images/banco-horas.png",
-    "placeholder": "Banco de Horas System",
+    "images": [
+    ],
     "tech": "Django, Django REST Framework, PostgreSQL, Docker",
     "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
     "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
-    "live_link": ""
+    "live_link": "",
+    "date": "2025-11-11"
   },
   {
     "id": 3,
-    "title": "Compra e Venda de Carros (Projeto Acadêmico)",
-    "reverse": true,
-    "image": "images/banco-horas.png",
-    "placeholder": "Banco de Horas System",
-    "tech": "Django, Django REST Framework, PostgreSQL, Docker",
-    "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
-    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
-    "live_link": ""
+    "title": "ComuneMed: Plataforma de Carreira Médica (Freelance)",
+    "reverse": false,
+    "images": [
+      "images/med/img01.png",
+      "images/med/img02.png",
+      "images/med/img03.png"
+    ],
+    "tech": "Django, Django REST Framework, Python, LGPD",
+    "description_items": [
+    { "type": "paragraph", "content": "Atuei como desenvolvedor responsável pela arquitetura e implementação da plataforma **ComuneMed**, um ecossistema digital focado na gestão de carreira para médicos e estudantes de medicina. O projeto centraliza a validação de credenciais curriculares e oportunidades de emprego." },
+    { "type": "heading", "content": "Foco de Desenvolvimento:" },
+    { "type": "list_item", "content": "Módulo de Validação de Credenciais: Projetei e codifiquei o workflow de submissão documental e o painel de administração para análise e aprovação manual, garantindo que o perfil médico receba o selo 'Verificado'." },
+    { "type": "list_item", "content": "Arquitetura e Segurança: Implementei a arquitetura de backend (API, Database) priorizando a **Escalabilidade** e o compliance com a **LGPD**, utilizando criptografia de ponta para dados sensíveis." },
+    { "type": "list_item", "content": "Funcionalidades Essenciais: Desenvolvi os *endpoints* para o gerenciamento de perfis detalhados, o sistema de Marketplace de vagas." }
+],
+    "code_link": "",
+    "live_link": "https://comunemed.com/",
+    "date": "2025-11-12"
+  },
+  {
+    "id": 4,
+    "title": "Rei da Brasa (Freelance)",
+    "reverse": false,
+    "images": [
+      "images/rei/img01.png"
+    ],
+    "tech": "Django, Django REST Framework, Python, React/TypeScript",
+    "description": "",
+    "code_link": "",
+    "live_link": "",
+    "date": "2025-11-13"
   }
 ]

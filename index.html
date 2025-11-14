@@ -28,7 +28,7 @@
             <div class="hero-content">
                 <p class="subtitle">Desenvolvedor Júnior</p>
                 <h1>Ruan Carlos Moura Sousa</h1>
-                <p class="role">Especialista Back-end | Django | Python | Node.js | Picos, PI</p>
+                <p class="role">Desenvolvedor Full-Stack | Django/Python | Flutter | React/TypeScript | Picos, PI</p>
                 <div class="actions">
                     <a href="#projects" class="btn primary">Ver Projetos</a>
                     <a href="[LINK PARA SEU LINKEDIN]" target="_blank" class="btn secondary">LinkedIn <i
@@ -53,18 +53,25 @@
                 <div class="skill-card">
                     <i class="fas fa-server"></i>
                     <h3>Back-end & APIs</h3>
-                    <p>Python, Django, Django REST Framework, Node.js, Express, APIs REST, JWT Authentication.</p>
+                    <p><strong>Python</strong>, <strong>Django</strong>, Django REST Framework,
+                        <strong>Node.js</strong>, Express, APIs REST, JWT
+                        Authentication.
+                    </p>
                 </div>
                 <div class="skill-card">
                     <i class="fas fa-database"></i>
                     <h3>Banco de Dados & Infra</h3>
-                    <p>PostgreSQL, Docker, Docker Compose, AWS Básico, Gerenciamento de Configuração (Ansible).</p>
+                    <p><strong>PostgreSQL</strong>, <strong>Docker</strong>, Docker Compose, AWS Básico, Gerenciamento
+                        de
+                        Configuração
+                        (<strong>Ansible</strong>).</p>
                 </div>
                 <div class="skill-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3>Outras Experiências</h3>
-                    <p>Desenvolvimento Mobile (Flutter), Firebase (BaaS), Automação de Sistemas (Ansible) e Git/GitHub.
-                    </p>
+                    <i class="fas fa-code"></i>
+                    <h3>Desenvolvimento Full-Stack & Móvel</h3>
+                    <p><strong>Flutter</strong>, Firebase (BaaS), <strong>React/TypeScript</strong>, Frontend
+                        (HTML/CSS/JS) e
+                        Git/GitHub.</p>
                 </div>
             </div>
         </section>
@@ -93,12 +100,24 @@
             </div>
         </section>
     </main>
+    <div id="imageModal" class="modal">
+        <span class="close-btn">&times;</span>
 
+        <div id="modal-carousel-content">
+            <a id="modal-prev" class="modal-nav-btn prev-modal">&#10094;</a>
+            <a id="modal-next" class="modal-nav-btn next-modal">&#10095;</a>
+
+            <img class="modal-content" id="expandedImage">
+            <div id="modal-indicator-container" class="carousel-indicators-modal"></div>
+        </div>
+
+    </div>
     <footer>
         <p>&copy; 2025 Ruan Carlos Moura Sousa. Construído com <i class="fas fa-heart"></i> e GitHub Pages.</p>
         <p class="footer-meta">Bacharel em Sistemas de Informação - UFPI</p>
     </footer>
 
+    <script src="js/global-modal.js"></script>
     <script src="js/script.js"></script>
 </body>
 
