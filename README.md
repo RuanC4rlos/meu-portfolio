@@ -4,7 +4,7 @@ Olá! Eu sou o **Ruan Carlos**, Desenvolvedor Júnior com foco em construir solu
 
 Neste repositório, você encontra o código-fonte do meu portfólio completo (hospedado no GitHub Pages) e uma curadoria dos meus projetos mais importantes em desenvolvimento.
 
-🔗 **Acesse o Portfólio Online:** [Link para o Seu Domínio no GitHub Pages]
+🔗 **Acesse o Portfólio Online:** https://ruanc4rlos.github.io/meu-portfolio/
 
 ---
 
@@ -29,7 +29,7 @@ Aqui estão exemplos do meu trabalho que demonstram minhas habilidades de entreg
 
 - **Tecnologias:** `Django`, `Django REST Framework`, `Python`, `JWT`, `LGPD`.
 - **Descrição:** Desenvolvimento do Back-end de uma plataforma SaaS para o setor médico. Foco na criação da **arquitetura escalável**, módulos de **validação de credenciais**, e garantia de **conformidade com a LGPD** através de criptografia e autenticação segura (JWT).
-- **Ver Projeto:** [🔗 Link para o Projeto Online (Demo/Case Study)] | [💻 Link para o Código-Fonte no GitHub]
+- **Ver Projeto:** https://comunemed.com/ | [💻 Link para o Código-Fonte no GitHub]
 
 #### 2. Sistema de Banco de Horas (Projeto Acadêmico)
 
