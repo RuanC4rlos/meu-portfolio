@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. LÓGICA DE GERAÇÃO DE HTML A PARTIR DO JSON
   // -------------------------------------------------------------------
 
-  function createProjectCardHTML(project) {
+  function createDetailedProjectHTML(project) {
     const descriptionHTML = project.description_items
       ? formatDescriptionHTML(project.description_items)
       : `<p>${project.description || "Descrição não disponível."}</p>`;
@@ -94,7 +94,33 @@ document.addEventListener("DOMContentLoaded", () => {
         </article>
     `;
   }
+  function createSimplifiedCardHTML(project) {
+    // URL para a nova página de detalhes
+    const detailUrl = `details.html?id=${project.id}`;
 
+    return `
+        <a href="${detailUrl}" class="simplified-card-link">
+            <article class="project-summary-card">
+                <div class="summary-card-image">
+                    <img src="${project.images[0] || "images/placeholder.png"}" 
+                         alt="Capa do projeto ${project.title}">
+                </div>
+                <div class="summary-card-details">
+                    <span class="project-type">${
+                      project.type || "Projeto"
+                    }</span>
+                    <h3>${project.title}</h3>
+                    <p class="tech-stack-summary">
+                        ${project.tech.split(",").slice(0, 3).join(", ")}...
+                    </p>
+                    <div class="summary-card-cta">
+                        Ver Estudo de Caso <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </article>
+        </a>
+    `;
+  }
   // -------------------------------------------------------------------
   // 3. LÓGICA DE PAGINAÇÃO
   // -------------------------------------------------------------------
@@ -184,7 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 2. Renderizar todos os cartões no DOM
       let allProjectsHTML = "";
       projectsData.forEach((project) => {
-        allProjectsHTML += createProjectCardHTML(project);
+        allProjectsHTML += createSimplifiedCardHTML(project);
       });
       projectsContainer.innerHTML = allProjectsHTML;
 
