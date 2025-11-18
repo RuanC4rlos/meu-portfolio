@@ -31,13 +31,14 @@
   {
     "id": 2,
     "title": "Sistema de Banco de Horas (Projeto Acadêmico)",
+    "type": "Acadêmico",
     "reverse": true,
     "images": [
     ],
     "tech": "Django, Django REST Framework, PostgreSQL, Docker",
     "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
     "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
-    "live_link": "",
+    "live_link": null,
     "date": "2025-11-11"
   },
   {

@@ -55,37 +55,44 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------------------------------------------
 
   function createProjectCardHTML(project) {
-    const isReverse = project.id % 2 === 0 ? " reverse" : "";
-    const liveLinkHTML = project.live_link
-      ? `<a href="${project.live_link}" target="_blank" class="btn project-link secondary">Ver Detalhes <i class="fas fa-external-link-alt"></i></a>`
-      : "";
-
     const descriptionHTML = project.description_items
       ? formatDescriptionHTML(project.description_items)
       : `<p>${project.description || "Descrição não disponível."}</p>`;
+
+    const projectTypeHTML = project.type
+      ? `<span class="project-type">${project.type}</span>`
+      : "";
+
+    // NOVO: Exibe os links apenas se existirem
+    const codeLinkHTML = project.code_link
+      ? `<a href="${project.code_link}" target="_blank" class="btn project-link">Código <i class="fab fa-github"></i></a>`
+      : "";
+
+    const liveLinkHTML = project.live_link
+      ? `<a href="${project.live_link}" target="_blank" class="btn project-link secondary">Ver ao vivo <i class="fas fa-external-link-alt"></i></a>`
+      : "";
+
     // AQUI INJETAMOS O CARROSSEL
     const carouselHTML = createCarouselHTML(project.images, project.id);
-
     return `
-            <article class="project-card${isReverse}">
-                <div class="project-image">
-                    ${carouselHTML} 
+        <article class="project-card">
+            <div class="project-image">
+                ${carouselHTML} 
+            </div>
+            <div class="project-details">
+                ${projectTypeHTML} <h3>${project.title}</h3>
+                <p class="tech-stack"><strong>Tecnologias:</strong> ${project.tech}</p>
+                
+                <div class="project-description-content">
+                    ${descriptionHTML}
                 </div>
-                <div class="project-details">
-                    <h3>${project.title}</h3>
-                    <p class="tech-stack"><strong>Tecnologias:</strong> ${project.tech}</p>
-                    
-                    <div class="project-description-content">
-                      ${descriptionHTML}
-                    </div>
-                    
-                    <div class="project-links">
-                        <a href="${project.code_link}" target="_blank" class="btn project-link">Código <i class="fab fa-github"></i></a>
-                        ${liveLinkHTML}
-                    </div>
+                
+                <div class="project-links">
+                    ${codeLinkHTML} ${liveLinkHTML}
                 </div>
-            </article>
-        `;
+            </div>
+        </article>
+    `;
   }
 
   // -------------------------------------------------------------------
