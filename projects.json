@@ -2,6 +2,7 @@
   {
     "id": 1,
     "title": "Compra e Venda de Carros (Projeto Acadêmico)",
+    "type": "Acadêmico",
     "reverse": true,
     "images": [
       "images/car/img01.png",
@@ -24,26 +25,52 @@
       { "type": "list_item", "content": "Gestão de Estado: Utilização de gerenciadores de estado do Flutter para manter a consistência da interface durante a navegação e operações assíncronas." },
       { "type": "list_item", "content": "Integração com Geolocalização: Implementação da **Google Maps API** e serviços de localização para exibir a localização exata do veículo anunciado e calcular distâncias para o comprador." }
     ],
-    "code_link": "",
-    "live_link": "",
+    "code_link": "https://github.com/RuanC4rlos/PDSI1---AutoCar.git",
+    "live_link": null,
     "date": "2025-11-10"
   },
   {
-    "id": 2,
-    "title": "Sistema de Banco de Horas (Projeto Acadêmico)",
-    "type": "Acadêmico",
-    "reverse": true,
-    "images": [
+  "id": 2,
+  "title": "Sistema de Banco de Horas (Projeto Acadêmico)",
+  "type": "Acadêmico",
+  "reverse": true,
+  "images": [
+      "images/banco-de-horas/img01.png",
+      "images/banco-de-horas/img02.png",
+      "images/banco-de-horas/img03.png",
+      "images/banco-de-horas/img04.png",
+      "images/banco-de-horas/img05.png",
+      "images/banco-de-horas/img06.png",
+      "images/banco-de-horas/img07.png",
+      "images/banco-de-horas/img08.png",
+      "images/banco-de-horas/img09.png",
+      "images/banco-de-horas/img10.png",
+      "images/banco-de-horas/img11.png",
+      "images/banco-de-horas/img12.png"
     ],
-    "tech": "Django, Django REST Framework, PostgreSQL, Docker",
-    "description": "Desenvolvimento Full Stack de um sistema de gestão de horas trabalhadas. Implementação back-end robusta para registro, consulta e validação. O projeto foi containerizado usando Docker e Docker Compose.",
-    "code_link": "[LINK DO REPOSITÓRIO GITHUB DO PROJETO 2]",
-    "live_link": null,
-    "date": "2025-11-11"
-  },
+  "tech": "Django (Python), Django REST Framework, PostgreSQL, Docker, MVC (MVT), Bootstrap (Custom)",
+  "description_items": [
+    { "type": "paragraph", "content": "Desenvolvimento de um sistema Full Stack para gestão e flexibilização do Banco de Horas de empresas, focado na **precisão do cálculo** e na **centralização de dados** para o setor pessoal. A prioridade técnica foi a **robustez do Back-end** e a organização arquitetural do projeto." },
+    
+    { "type": "heading", "content": "Arquitetura e Regra de Negócio (Back-end)" },
+    
+    { "type": "list_item", "content": "Modelagem Complexa: Gerenciamento de 7 entidades (Setor, Perfil, Status, Forma de Pagamento, Movimentação, Log, Hash), garantindo a integridade dos dados de compensação via **PostgreSQL**." },
+    { "type": "list_item", "content": "Modularização (4 Apps): Arquitetura dividida em `core` (regras e modelagem), `usuario` (autenticação/perfis), `movimentacao` (gestão de horas) e `relatorio` (extração de dados), promovendo **separação de responsabilidades** e escalabilidade." },
+    { "type": "list_item", "content": "Núcleo de Negócio (`core`): Centralização de toda a lógica de negócio e modelos de dados, isolando a **regra crucial de cálculo e validação**." },
+    
+    { "type": "heading", "content": "Infraestrutura e Front-end" },
+    
+    { "type": "list_item", "content": "Containerização: Utilização de **Docker e Docker Compose** para padronizar o ambiente de desenvolvimento e produção, garantindo **repetibilidade e facilidade de *deploy***." },
+    { "type": "list_item", "content": "Front-end Funcional: Interface desenvolvida com Bootstrap, com personalização em CSS para adequação visual, focando na usabilidade para o setor de RH." }
+  ],
+  "code_link": "https://github.com/RuanC4rlos/ponto_eletronico.git",
+  "live_link": null,
+  "date": "2025-11-11"
+},
   {
     "id": 3,
     "title": "ComuneMed: Plataforma de Carreira Médica (Freelance)",
+    "type": "Freelance",
     "reverse": false,
     "images": [
       "images/med/img01.png",
@@ -58,21 +85,22 @@
     { "type": "list_item", "content": "Arquitetura e Segurança: Implementei a arquitetura de backend (API, Database) priorizando a **Escalabilidade** e o compliance com a **LGPD**, utilizando criptografia de ponta para dados sensíveis." },
     { "type": "list_item", "content": "Funcionalidades Essenciais: Desenvolvi os *endpoints* para o gerenciamento de perfis detalhados, o sistema de Marketplace de vagas." }
 ],
-    "code_link": "",
+    "code_link": null,
     "live_link": "https://comunemed.com/",
     "date": "2025-11-12"
   },
   {
     "id": 4,
     "title": "Rei da Brasa (Freelance)",
+    "type": "Freelance",
     "reverse": false,
     "images": [
       "images/rei/img01.png"
     ],
     "tech": "Django, Django REST Framework, Python, React/TypeScript",
-    "description": "",
-    "code_link": "",
-    "live_link": "",
+    "description": null,
+    "code_link": null,
+    "live_link": null,
     "date": "2025-11-13"
   }
 ]
