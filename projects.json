@@ -90,7 +90,46 @@
     "date": "2025-11-12"
   },
   {
-    "id": 4,
+  "id": 4,
+  "title": "Chronos Pomodoro: Gestão de Tempo de Alta Precisão",
+  "type": "Projeto Pessoal",
+  "reverse": true,
+  "images": [
+    "chronos-pomodoro/chronos-pomodoro-home.png",
+    "chronos-pomodoro/chronos-pomodoro-settings.png",
+    "chronos-pomodoro/chronos-pomodoro-history.png",
+    "chronos-pomodoro/chronos-pomodoro-page.png"
+  ],
+  "tech": "React, TypeScript, Web Workers, Context API",
+  "description_items": [
+    {
+      "type": "paragraph",
+      "content": "Desenvolvi o **Chronos Pomodoro**, uma aplicação de produtividade focada na precisão temporal absoluta. O objetivo foi criar uma ferramenta que superasse as limitações de contagem de tempo dos navegadores padrão, oferecendo uma experiência robusta para gerenciamento de ciclos de foco e descanso."
+    },
+    {
+      "type": "heading",
+      "content": "Destaques de Engenharia:"
+    },
+    {
+      "type": "list_item",
+      "content": "Multi-threading com Web Workers: Para contornar o *throttling* (redução de performance) que navegadores aplicam em abas inativas, implementei a contagem de tempo em uma *background thread* isolada, garantindo precisão mesmo com a aba minimizada."
+    },
+    {
+      "type": "list_item",
+      "content": "Arquitetura de Estado: Utilizei **Context API** combinado com **useReducer** para centralizar a lógica de transição de estados complexos (Start, Pause, Reset, Cycle Change), mantendo o código desacoplado e previsível."
+    },
+    {
+      "type": "list_item",
+      "content": "Padrões de Projeto: Aplicação do padrão **Singleton** no gerenciador do Worker e persistência de dados via LocalStorage para recuperação de sessão."
+    }
+  ],
+  "code_link": "https://github.com/RuanC4rlos/chronos-pomodoro.git",
+  "live_link": null,
+  "date": "2025-12-13"
+}
+,
+  {
+    "id": 5,
     "title": "Rei da Brasa (Freelance)",
     "type": "Freelance",
     "reverse": false,
