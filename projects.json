@@ -95,10 +95,10 @@
   "type": "Projeto Pessoal",
   "reverse": true,
   "images": [
-    "chronos-pomodoro/chronos-pomodoro-home.png",
-    "chronos-pomodoro/chronos-pomodoro-settings.png",
-    "chronos-pomodoro/chronos-pomodoro-history.png",
-    "chronos-pomodoro/chronos-pomodoro-page.png"
+    "images/chronos-pomodoro/chronos-pomodoro-home.png",
+    "images/chronos-pomodoro/chronos-pomodoro-settings.png",
+    "images/chronos-pomodoro/chronos-pomodoro-history.png",
+    "images/chronos-pomodoro/chronos-pomodoro-page.png"
   ],
   "tech": "React, TypeScript, Web Workers, Context API",
   "description_items": [
